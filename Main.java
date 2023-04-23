@@ -14,19 +14,33 @@ class Main {
     System.out.println("Which operator would you like to use?");
     String operation = scanner.nextLine();
 
-    if (operation.equals("sum")) {
-      System.out.printf("%n%f+%f=%f",num1,num2,num1+num2);
-    } else if (operation.equals("product")) {
-      System.out.printf("%n%f*%f=%f",num1,num2,num1*num2);
-    } else if (operation.equals("quotient")) {
-      System.out.printf("%n%f/%f=%f",num1,num2,num1/num2);
-    } else if (operation.equals("difference")) {
-      System.out.printf("%n%f-%f=%f",num1,num2,num1-num2);
-    }else if (operation.equals("square")) {
-      System.out.printf("%n%f^%f=%f",num1,num2,Math.pow(num1,num2));
-    } else {
-      System.out.printf("invalid operation: %s",operation);
+    switch (operation){
+      case "sum":  
+        System.out.printf("%n%f+%f=%f",num1,num2,num1+num2);
+        break;
+      case "product":
+        System.out.printf("%n%f*%f=%f",num1,num2,num1*num2);
+        break;
+      case "quotient":
+          if (num2 ==0){
+            System.out.print("dividing by zero is not possible");
+          } else {
+            System.out.printf("%n%f/%f=%f",num1,num2,num1/num2);
+          }
+        break;
+      case "difference":
+        System.out.printf("%n%f-%f=%f",num1,num2,num1-num2);
+        break;
+      case "square":
+        System.out.printf("%n%f^%f=%f",num1,num2,Math.pow(num1,num2));
+        break;
+      default:
+        System.out.printf("%s is not a supported operation" , operation);
+        
+        
+        
     }
+   
     scanner.close();
   }
 }
